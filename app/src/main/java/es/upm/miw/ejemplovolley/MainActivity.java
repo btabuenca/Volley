@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-
-
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,14 +40,15 @@ public class MainActivity extends Activity {
 
         tvResultado = (TextView) findViewById(R.id.tvResultado);
         gson = new Gson();
-        hacerPeticionCentros(URL_RECURSO);
+        performRequest(URL_RECURSO);
     }
+
 
     /**
      * Genera la petición y la encola
      * @param urlRecurso URL del recurso solicitado
      */
-    public void hacerPeticionCentros(String urlRecurso){
+    public void performRequest(String urlRecurso){
         JsonArrayRequest peticion = new JsonArrayRequest(
                 urlRecurso,                             // URL to fetch the JSON from
                 new Response.Listener<JSONArray>() {    // Listener to receive the JSON response
@@ -57,9 +56,7 @@ public class MainActivity extends Activity {
                     public void onResponse(JSONArray jsonArray) {
 
                         // btb uncomment whole bufferstring
-                        //String respuestaJSON = jsonArray.toString();
-                        //tvResultado.setText(respuestaJSON);
-                        Log.i(TAG, "#centros=" + Integer.toString(jsonArray.length()));
+                        Log.i(TAG, "#centros UPM=" + Integer.toString(jsonArray.length()));
 
 
                         // btb split into items
