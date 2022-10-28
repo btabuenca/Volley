@@ -21,11 +21,8 @@ import es.upm.miw.ejemplovolley.models.Centro;
 public class MainActivity extends Activity {
 
     static final String URL_RECURSO = "https://www.upm.es/wapi_upm/academico/comun/index.upm/v2/centro.json";
-
     static final String TAG = "MiW" ;
-
     private RequestQueue colaPeticiones;
-
     private TextView tvResultado;
     Gson gson;
     
@@ -57,9 +54,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void onResponse(JSONArray jsonArray) {
 
-                        // btb uncomment whole bufferstring
                         Log.i(TAG, "#centros UPM=" + Integer.toString(jsonArray.length()));
-
 
                         // btb split into items
                         StringBuilder sb = new StringBuilder();
@@ -79,7 +74,7 @@ public class MainActivity extends Activity {
                         tvResultado.setText(sb.toString());
                     }
                 },
-                new Response.ErrorListener() {          // Error listener, or null to ignore errors.
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         Log.e(TAG, volleyError.toString());
