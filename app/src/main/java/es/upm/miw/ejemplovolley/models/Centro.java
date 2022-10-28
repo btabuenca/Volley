@@ -1,4 +1,4 @@
-package es.upm.miw.ejemplovolley;
+package es.upm.miw.ejemplovolley.models;
 
 import com.google.gson.annotations.SerializedName;
 

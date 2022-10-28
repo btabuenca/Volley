@@ -15,6 +15,8 @@ import com.google.gson.Gson;
 
 import org.json.JSONArray;
 
+import es.upm.miw.ejemplovolley.models.Centro;
+
 
 public class MainActivity extends Activity {
 
@@ -70,14 +72,11 @@ public class MainActivity extends Activity {
                                 Log.i(TAG, '\t' + centro.toString());
 
                                 sb.append("- ["+centro.getCodigo()+"] "+centro.getNombre()+"\n");
-
-
                             } catch (Exception e) {
                                 Log.e(TAG, e.getMessage());
                             }
                         }
                         tvResultado.setText(sb.toString());
-
                     }
                 },
                 new Response.ErrorListener() {          // Error listener, or null to ignore errors.
@@ -116,5 +115,4 @@ public class MainActivity extends Activity {
             colaPeticiones.add(peticion);
         }
     }
-
 }
